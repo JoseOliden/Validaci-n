@@ -8,11 +8,8 @@ from reportlab.lib.styles import getSampleStyleSheet
 import tempfile
 import csv
 
-# Detectar automáticamente delimitador
-with open(uploaded_file, 'r', newline='', encoding='utf-8') as f:
-    dialect = csv.Sniffer().sniff(f.read(2048))
-    f.seek(0)
-    df = pd.read_csv(f, delimiter=dialect.delimiter)
+
+
 
 
 
@@ -20,7 +17,7 @@ with open(uploaded_file, 'r', newline='', encoding='utf-8') as f:
 # CARGA DE DATOS
 # -----------------------------
 file = st.file_uploader("Sube un archivo CSV con tus resultados", type=["CSV"])
-
+# Detectar automáticamente delimitador
 with open(file, 'r', newline='', encoding='utf-8') as f:
     dialect = csv.Sniffer().sniff(f.read(2048))
     f.seek(0)
