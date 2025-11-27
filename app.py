@@ -9,21 +9,27 @@ import tempfile
 import csv
 
 
-
-
-
-
 # -----------------------------
 # CARGA DE DATOS
 # -----------------------------
 file = st.file_uploader("Sube un archivo CSV con tus resultados", type=["CSV"])
-# Detectar automáticamente delimitador
-with open(file, 'r', newline='', encoding='utf-8') as f:
-    dialect = csv.Sniffer().sniff(f.read(2048))
-    f.seek(0)
+
 
 if file:
-    df = pd.read_csv(file, delimiter=dialect.delimiter)
+    if file is not None:
+    # Leer archivo como texto
+    content = file.getvalue().decode("utf-8", errors="ignore")
+
+    # Detectar delimitador automáticamente
+    dialect = csv.Sniffer().sniff(content[:2048])
+
+    # Volver a convertirlo en archivo para pandas
+    df = pd.read_csv(
+        io.StringIO(content),
+        delimiter=dialect.delimiter
+    )
+
+    #df = pd.read_csv(file, delimiter=dialect.delimiter)
     st.write("Datos cargados:")
     st.write(df)
     st.write("Columnas detectadas:", df.columns.tolist())
