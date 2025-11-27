@@ -2,12 +2,12 @@ streamlit
 numpy
 panda
 matplotlib
-scipy.stats
+scipy
 linregress 
 f_oneway
 reportlab 
 SimpleDocTemplate 
 Paragraph
-reportlab.lib.styles
+reportlab
 getSampleStyleSheet
 tempfile
