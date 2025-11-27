@@ -3,11 +3,5 @@ numpy
 panda
 matplotlib
 scipy
-linregress 
-f_oneway
 reportlab 
-SimpleDocTemplate 
-Paragraph
-reportlab
-getSampleStyleSheet
 tempfile
