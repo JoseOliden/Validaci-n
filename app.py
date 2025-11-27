@@ -6,16 +6,27 @@ from scipy.stats import linregress, f_oneway
 from reportlab.platypus import SimpleDocTemplate, Paragraph
 from reportlab.lib.styles import getSampleStyleSheet
 import tempfile
+import csv
 
-st.title("Validación de Método Analítico Completa")
+# Detectar automáticamente delimitador
+with open(uploaded_file, 'r', newline='', encoding='utf-8') as f:
+    dialect = csv.Sniffer().sniff(f.read(2048))
+    f.seek(0)
+    df = pd.read_csv(f, delimiter=dialect.delimiter)
+
+
 
 # -----------------------------
 # CARGA DE DATOS
 # -----------------------------
 file = st.file_uploader("Sube un archivo CSV con tus resultados", type=["CSV"])
 
+with open(file, 'r', newline='', encoding='utf-8') as f:
+    dialect = csv.Sniffer().sniff(f.read(2048))
+    f.seek(0)
+
 if file:
-    df = pd.read_csv(file)
+    df = pd.read_csv(file, delimiter=dialect.delimiter)
     st.write("Datos cargados:")
     st.write(df)
     st.write("Columnas detectadas:", df.columns.tolist())
