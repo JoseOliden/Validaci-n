@@ -12,10 +12,10 @@ st.title("Validación de Método Analítico Completa")
 # -----------------------------
 # CARGA DE DATOS
 # -----------------------------
-file = st.file_uploader("Sube un archivo CSV con tus resultados", type=["CSV"])
+file = st.file_uploader("Sube un archivo CSV con tus resultados", type=["EXCEL"])
 
 if file:
-    df = pd.read_csv(file)
+    df = pd.read_excel(file)
     st.write("Datos cargados:")
     st.write(df)
     st.write("Columnas detectadas:", df.columns.tolist())
