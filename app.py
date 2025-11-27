@@ -12,7 +12,7 @@ st.title("Validación de Método Analítico Completa")
 # -----------------------------
 # CARGA DE DATOS
 # -----------------------------
-file = st.file_uploader("Sube un archivo CSV con tus resultados", type=["csv"])
+file = st.file_uploader("Sube un archivo CSV con tus resultados", type=["txt"])
 
 if file:
     df = pd.read_csv(file)
