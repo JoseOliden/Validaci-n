@@ -6,18 +6,18 @@ from scipy.stats import linregress, f_oneway
 from reportlab.platypus import SimpleDocTemplate, Paragraph
 from reportlab.lib.styles import getSampleStyleSheet
 import tempfile
-import csv
-import io
+
 
 
 # -----------------------------
 # CARGA DE DATOS
 # -----------------------------
-file = st.file_uploader("Sube un archivo CSV con tus resultados", type=["CSV"])
+#file = st.file_uploader("Sube un archivo CSV con tus resultados", type=["CSV"])
+file = st.file_uploader("Sube tu archivo Excel", type=["xlsx", "xls"])
 
 
 if file:
-    df = pd.read_csv(file, sep=None, engine="python")
+    df = pd.read_excel(file)
     #df.columns = df.columns.str.strip().str.lower()
     #st.write("Columnas detectadas:", df.columns.tolist())
     #st.write(df.head())
