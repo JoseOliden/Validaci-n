@@ -18,6 +18,7 @@ if file:
     df = pd.read_csv(file)
     st.write("Datos cargados:")
     st.write(df)
+    st.write("Columnas detectadas:", df.columns.tolist())
 
     valores = df["valor"].values
 
