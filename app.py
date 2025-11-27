@@ -18,17 +18,17 @@ file = st.file_uploader("Sube un archivo CSV con tus resultados", type=["CSV"])
 
 if file:
     if file is not None:
-    # Leer archivo como texto
-    content = file.getvalue().decode("utf-8", errors="ignore")
+        # Leer archivo como texto
+        content = file.getvalue().decode("utf-8", errors="ignore")
 
-    # Detectar delimitador automáticamente
-    dialect = csv.Sniffer().sniff(content[:2048])
+        # Detectar delimitador automáticamente
+        dialect = csv.Sniffer().sniff(content[:2048])
 
-    # Volver a convertirlo en archivo para pandas
-    df = pd.read_csv(
-        io.StringIO(content),
-        delimiter=dialect.delimiter
-    )
+        # Volver a convertirlo en archivo para pandas
+        df = pd.read_csv(
+            io.StringIO(content),
+            delimiter=dialect.delimiter
+        )
 
     #df = pd.read_csv(file, delimiter=dialect.delimiter)
     st.write("Datos cargados:")
