@@ -1,8 +1,8 @@
-import streamlit as st
-import numpy as np
-import pandas as pd
+streamlit 
+numpy
+panda
 import matplotlib.pyplot as plt
 from scipy.stats import linregress, f_oneway
 from reportlab.platypus import SimpleDocTemplate, Paragraph
 from reportlab.lib.styles import getSampleStyleSheet
-import tempfile
+tempfile
