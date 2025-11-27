@@ -18,6 +18,10 @@ file = st.file_uploader("Sube un archivo CSV con tus resultados", type=["CSV"])
 
 if file:
     df = pd.read_csv(file, sep=None, engine="python")
+    df.columns = df.columns.str.strip().str.lower()
+    st.write("Columnas detectadas:", df.columns.tolist())
+    st.write(df.head())
+    
     st.write("Datos cargados:")
     st.write(df)
     st.write("Columnas detectadas:", df.columns.tolist())
